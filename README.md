@@ -165,3 +165,63 @@ Clean Architecture pada aplikasi Flutter melibatkan struktur proyek yang terorga
 ##  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
 
 pertama yang saya lakukan adalah membuat left drawer file dan mengisinya dengan widget, setelah itu saya berikan tombol homepage dan tambah barang yang akan memiliki routing ke form page dan home. kemudian saya menaruh drawer ke menu. kemudian saya membuat file formPage dan membuat variable untuk nanti ada di formpage yaitu nama deskripsi dan harga. kemudian membuat kolom untuk mengisi setiap datanya. kemudian menambahkan showdialog untuk menampilkan detail item setelah ditambahkan. kemudian saya buat variable globalist dan menyimpan barang yang dibuat. kemudian membuat file itemcard yang saya isi widget yang menampilkan item di dlam globalist
+
+# Tugas 9
+
+##  Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Bisa, tapi tidak disarankan. Karena jika tanpa membuat model terlebih dahulu, maka tidak ada validasi untuk data yang diambil. Sehingga data yang diambil bisa saja tidak sesuai dengan yang diinginkan.
+
+## Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter
+
+CookieRequest adalah class yang digunakan untuk mengambil data dari server. Instance CookieRequest perlu dibagikan ke semua komponen di aplikasi Flutter agar data yang diambil dapat digunakan oleh semua komponen.
+
+## Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter
+
+Pertama, membuat model untuk data yang akan diambil. Kedua, membuat class untuk mengambil data dari server. Ketiga, membuat class untuk menampilkan data yang diambil dari server.
+
+## Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+Pengguna memasukkan data akun (misal username dan password) pada form login di aplikasi Flutter.
+Flutter mengirimkan data akun tersebut melalui request HTTP POST ke endpoint auth Django. Data akun dikirim dalam format JSON atau form-urlencoded.
+View autentikasi Django menerima request data akun. Kemudian dilakukan pengecekan terhadap database untuk memastikan kredensial yang dikirim cocok atau valid.
+Jika autentikasi berhasil, Django akan membuat dan mengirimkan access token JWT (JSON Web Token) kembali ke aplikasi Flutter.
+Flutter menerima token JWT dari Django. Token JWT ini akan disimpan secara aman di device pengguna.
+Untuk request berikutnya ke API Django, Flutter akan mengirimkan token JWT di header request-nya. Django akan melakukan verifikasi atas token JWT ini untuk autentikasi.
+Jika token JWT valid, maka Django akan memberikan akses ke data dan fitur aplikasi yang diperlukan kepada pengguna/Flutter.
+Setelah berhasil terautentikasi, aplikasi Flutter akan menampilkan menu dan halaman home sesuai hak akses pengguna.
+
+## Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+Scaffold : Sebagai base/kerangka layout utama. Mengelola letak appBar, body, drawer.
+AppBar : Menampilkan app bar berisi judul halaman.
+Text : Digunakan untuk menampilkan text static.
+Center : Membungkus child ke tengah secara horizontal.
+CircularProgressIndicator : Menampilkan indicator loading bentuk lingkaran.
+Column : Meletakkan child secara vertikal.
+TextStyle : Mengatur style text seperti color, fontSize.
+SizedBox : Memberi jarak vertikal antar widget.
+ListView.builder : Menampilkan scrollable list data secara efisien.
+InkWell : Memberi efek splash saat ditekan.
+Card : Menampilkan child dalam bentuk kartu dengan shadow.
+Padding : Memberi jarak dalam Card.
+Navigator : Mengelola perpindahan halaman.
+MaterialPageRoute : Rute penghubung antar halaman.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+
+pertama saya membuat list_product dan bookdetails, kemudian saya mengisi kedua file tersebut dimana list product akan mengambil data dari json di endpoint. kemudian membuat models item untuk tempat atau wadah dari json yang diambil. kemudian saya menampilkannya di list product, kemudian di setiap product saya arahkan untuk ke bookdetails yang akan mengambil price name dan deskripsi.
+
+di shopping list atau di endpoint saya mengedit beberapa hal, 
+
+seperti menambahkan
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
+dan mengatur Http
+
+
